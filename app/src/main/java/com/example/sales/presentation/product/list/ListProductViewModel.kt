@@ -6,7 +6,7 @@ import com.example.sales.domain.model.Product
 import com.example.sales.domain.usecase.product.DeleteProductUseCase
 import com.example.sales.domain.usecase.product.ListProductsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import jakarta.inject.Inject
+import javax.inject.Inject
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 

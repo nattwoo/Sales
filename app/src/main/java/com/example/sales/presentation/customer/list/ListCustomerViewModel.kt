@@ -6,7 +6,7 @@ import com.example.sales.domain.model.Customer
 import com.example.sales.domain.usecase.customer.DeleteCustomerUseCase
 import com.example.sales.domain.usecase.customer.ListCustomersUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import jakarta.inject.Inject
+import javax.inject.Inject
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
@@ -17,7 +17,6 @@ import kotlinx.coroutines.launch
 @HiltViewModel
 class ListCustomerViewModel @Inject constructor(
     getCustomersUseCase: ListCustomersUseCase,
-    // here we inject the use case to delete customers
     private val deleteCustomerUseCase: DeleteCustomerUseCase
 ) : ViewModel() {
 
@@ -38,7 +37,6 @@ class ListCustomerViewModel @Inject constructor(
                 ListCustomerUiState()
             )
 
-    // here we can delete a customer from the list
     fun deleteCustomer(customer: Customer) {
         viewModelScope.launch {
             deleteCustomerUseCase(customer.code)
