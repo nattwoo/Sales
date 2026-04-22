@@ -1,9 +1,8 @@
-package com.example.sales.data.local.repository
+package com.example.sales.data.respository
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
-
 
 abstract class BaseInMemoryRepository<T, ID>(
     initialData: List<T>

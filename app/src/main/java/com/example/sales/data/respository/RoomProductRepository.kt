@@ -1,14 +1,13 @@
-package com.example.sales.data.local.repository
+package com.example.sales.data.respository
 
 import com.example.sales.data.local.dao.ProductDao
-import com.example.sales.data.mapper.toDomain
-import com.example.sales.data.mapper.toEntity
+import com.example.sales.data.remote.mapper.toDomain
+import com.example.sales.data.remote.mapper.toEntity
 import com.example.sales.domain.model.Product
 import com.example.sales.domain.repository.ProductRepository
-import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-
+import javax.inject.Inject
 
 class RoomProductRepository @Inject constructor(
     private val dao: ProductDao

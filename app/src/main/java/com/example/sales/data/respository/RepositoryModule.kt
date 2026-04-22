@@ -1,7 +1,5 @@
-package com.example.sales.di
+package com.example.sales.data.respository
 
-import com.example.sales.data.remote.FirestoreCustomerRepository
-import com.example.sales.data.remote.FirestoreProductRepository
 import com.example.sales.domain.repository.CustomerRepository
 import com.example.sales.domain.repository.ProductRepository
 import dagger.Binds

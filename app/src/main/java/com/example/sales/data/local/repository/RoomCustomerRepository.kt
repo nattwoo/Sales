@@ -1,8 +1,8 @@
 package com.example.sales.data.local.repository
 
 import com.example.sales.data.local.dao.CustomerDao
-import com.example.sales.data.mapper.toDomain
-import com.example.sales.data.mapper.toEntity
+import com.example.sales.data.remote.mapper.toDomain
+import com.example.sales.data.remote.mapper.toEntity
 import com.example.sales.domain.model.Customer
 import com.example.sales.domain.repository.CustomerRepository
 import javax.inject.Inject

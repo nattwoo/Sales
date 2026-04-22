@@ -1,5 +1,6 @@
 package com.example.sales.data.local.repository
 
+import com.example.sales.data.respository.BaseInMemoryRepository
 import com.example.sales.domain.model.Customer
 import com.example.sales.domain.repository.CustomerRepository
 import javax.inject.Inject

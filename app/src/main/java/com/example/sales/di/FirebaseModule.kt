@@ -16,7 +16,6 @@ object FirebaseModule {
     @Singleton
     fun provideFirestore(): FirebaseFirestore {
         val firestore = FirebaseFirestore.getInstance()
-        // Configuración para mejorar la estabilidad offline
         val settings = FirebaseFirestoreSettings.Builder()
             .setPersistenceEnabled(true)
             .build()

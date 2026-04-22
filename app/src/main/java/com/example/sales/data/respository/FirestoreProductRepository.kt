@@ -1,10 +1,10 @@
-package com.example.sales.data.remote
+package com.example.sales.data.respository
 
+import com.example.sales.data.remote.datasource.ProductFirebaseDataSource
 import com.example.sales.domain.model.Product
 import com.example.sales.domain.repository.ProductRepository
-import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
-
+import javax.inject.Inject
 
 class FirestoreProductRepository @Inject constructor(
     private val firebaseDataSource: ProductFirebaseDataSource

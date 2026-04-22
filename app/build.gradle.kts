@@ -78,4 +78,9 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
+
+    //--- Retrofit
+    implementation("com.squareup.retrofit2:retrofit:3.0.0")
+    // Convertidor JSON (Gson)
+    implementation("com.squareup.retrofit2:converter-gson:3.0.0")
 }

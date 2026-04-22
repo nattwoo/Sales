@@ -1,13 +1,12 @@
-package com.example.sales.data.remote
+package com.example.sales.data.remote.datasource
 
 import com.example.sales.domain.model.Product
 import com.google.firebase.firestore.FirebaseFirestore
-import javax.inject.Inject
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.tasks.await
-
+import javax.inject.Inject
 
 class ProductFirebaseDataSource @Inject constructor() {
 

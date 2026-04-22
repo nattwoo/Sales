@@ -1,4 +1,5 @@
-package com.example.sales.data.local.repository
+package com.example.sales.data.respository
+
 import kotlinx.coroutines.flow.Flow
 
 interface BaseRepository<T, ID> {
