@@ -6,6 +6,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Transaction
 import com.example.sales.data.local.entity.ProductEntity
+
 import kotlinx.coroutines.flow.Flow
 
 @Dao

@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -27,7 +26,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import com.example.sales.domain.model.Customer
 
 @Composable
@@ -69,70 +68,65 @@ fun ListCustomerScreen(
                 }
             }
         }
-    ) { paddingValues ->
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues)
-                .padding(top = 20.dp)
-        ) {
-            when {
-                uiState.isLoading -> {
-                    Box(
-                        contentAlignment = Alignment.Center
-                    ) {
-                        CircularProgressIndicator()
-                    }
-                }
+    ) { _ ->
 
-                uiState.customers.isEmpty() -> {
-                    EmptyCustomersView()
-                }
-
-                else -> {
-                    ListCustomer(
-                        customers = uiState.customers,
-                        // here we save the customer and show a confirmation before deleting
-                        onDeleteCustomer = { customer ->
-                            customerToDelete = customer
-                        }
-                    )
+        when {
+            uiState.isLoading -> {
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center
+                ) {
+                    CircularProgressIndicator()
                 }
             }
-        }
 
-        // here we show the confirmation before deleting the customer
-        customerToDelete?.let { customer ->
-            AlertDialog(
-                onDismissRequest = {
-                    customerToDelete = null
-                },
-                title = {
-                    Text("Confirmar eliminación")
-                },
-                text = {
-                    Text("¿Seguro que deseas eliminar al cliente ${customer.name}?")
-                },
-                confirmButton = {
-                    TextButton(
-                        onClick = {
-                            viewModel.deleteCustomer(customer)
-                            customerToDelete = null
-                        }
-                    ) {
-                        Text("Eliminar")
+            uiState.customers.isEmpty() -> {
+                EmptyCustomersView()
+            }
+
+            else -> {
+                ListCustomer(
+                    customers = uiState.customers,
+                    // here we save the customer and show a confirmation before deleting
+                    onDeleteCustomer = { customer ->
+                        customerToDelete = customer
                     }
-                },
-                dismissButton = {
-                    TextButton(
-                        onClick = {
-                            customerToDelete = null
-                        }
-                    ) {
-                        Text("Cancelar")
-                    }
-                }
-            )
+                )
+            }
         }
+    }
+
+    // here we show the confirmation before deleting the customer
+    customerToDelete?.let { customer ->
+        AlertDialog(
+            onDismissRequest = {
+                customerToDelete = null
+            },
+            title = {
+                Text("Confirmar eliminación")
+            },
+            text = {
+                Text("¿Seguro que deseas eliminar al cliente ${customer.name}?")
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        viewModel.deleteCustomer(customer)
+                        customerToDelete = null
+                    }
+                ) {
+                    Text("Eliminar")
+                }
+            },
+            dismissButton = {
+                TextButton(
+                    onClick = {
+                        customerToDelete = null
+                    }
+                ) {
+                    Text("Cancelar")
+                }
+            }
+        )
     }
 }

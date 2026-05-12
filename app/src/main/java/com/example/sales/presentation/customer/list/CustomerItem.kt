@@ -38,7 +38,7 @@ fun CustomerItem(
             Spacer(modifier = Modifier.height(4.dp))
 
             Text(
-                text = "Code: ${customer.code}",
+                text = "Code: ${customer.id}",
                 style = MaterialTheme.typography.bodySmall
             )
 

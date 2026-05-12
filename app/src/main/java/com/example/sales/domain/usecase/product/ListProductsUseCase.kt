@@ -14,4 +14,3 @@ class ListProductsUseCase @Inject constructor(
         return repository.getProducts()
     }
 }
-

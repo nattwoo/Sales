@@ -30,7 +30,7 @@ fun ListCustomer(
     ) {
         items(
             items = customers,
-            key = { it.code }
+            key = { it.id }
         ) { customer ->
             CustomerItem(customer = customer,
                 //here we send the action to delete to each card

@@ -66,7 +66,7 @@ class CreateCustomerViewModel @Inject constructor(
             try {
 
                 val customer = Customer(
-                    code = currentState.code,
+                    id = currentState.code,
                     name = currentState.name,
                     email = currentState.email,
                     purchaseHistory = currentState.purchaseHistory

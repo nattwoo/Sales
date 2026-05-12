@@ -1,4 +1,14 @@
 package com.example.sales.domain.usecase.product
 
-class FindProductByCodeUseCase {
+import com.example.sales.domain.model.Product
+import com.example.sales.domain.repository.ProductRepository
+import javax.inject.Inject
+
+class FindProductByCodeUseCase @Inject constructor(
+    private val repository: ProductRepository
+) {
+
+    suspend operator fun invoke(productCode: String): Product? {
+        return repository.findProductByCode(productCode)
+    }
 }

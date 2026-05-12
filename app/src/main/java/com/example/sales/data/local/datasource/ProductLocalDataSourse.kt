@@ -1,4 +1,5 @@
-package com.example.sales.data.remote.datasource
+package com.example.sales.data.local.datasource
+
 
 import com.example.sales.data.local.dao.ProductDao
 import com.example.sales.data.local.entity.ProductEntity
@@ -28,4 +29,8 @@ class ProductLocalDataSource @Inject constructor(
     suspend fun saveProducts(products: List<ProductEntity>) {
         dao.insertAll(products)
     }
+    suspend fun replaceAll(products: List<ProductEntity>){
+        dao.replaceAll(products)
+    }
+
 }

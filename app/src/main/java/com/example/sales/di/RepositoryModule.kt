@@ -1,5 +1,8 @@
-package com.example.sales.data.respository
+package com.example.sales.di
 
+
+import com.example.sales.data.repository.CustomerRepositoryImpl
+import com.example.sales.data.repository.ProductRepositoryImpl
 import com.example.sales.domain.repository.CustomerRepository
 import com.example.sales.domain.repository.ProductRepository
 import dagger.Binds
@@ -15,12 +18,12 @@ abstract class RepositoryModule {
     @Binds
     @Singleton
     abstract fun bindProductRepository(
-        repository: FirestoreProductRepository // Volvemos a Firebase
+        repository: ProductRepositoryImpl
     ): ProductRepository
 
     @Binds
     @Singleton
     abstract fun bindCustomerRepository(
-        repository: FirestoreCustomerRepository // Volvemos a Firebase
+        repository: CustomerRepositoryImpl
     ): CustomerRepository
 }

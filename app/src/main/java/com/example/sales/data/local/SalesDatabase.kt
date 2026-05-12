@@ -1,12 +1,9 @@
 package com.example.sales.data.local
 
-
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.example.sales.data.local.dao.CustomerDao
 import com.example.sales.data.local.dao.ProductDao
-import com.example.sales.data.local.entity.ProductEntity
-import com.example.sales.data.local.entity.CustomerEntity
 
 @Database(
     entities = [ProductEntity::class, CustomerEntity::class],

@@ -1,6 +1,5 @@
-package com.example.sales.data.local.repository
+package com.example.sales.data.repository
 
-import com.example.sales.data.respository.BaseInMemoryRepository
 import com.example.sales.domain.model.Customer
 import com.example.sales.domain.repository.CustomerRepository
 import javax.inject.Inject
@@ -17,23 +16,16 @@ class InMemoryCustomerRepository @Inject constructor()
     )
 ),
     CustomerRepository {
-
-    override fun getId(item: Customer): String = item.code
-
+    override fun getId(item: Customer): String = item.id
     override fun observeAll(): Flow<List<Customer>> = state
-
     override suspend fun findCustomerByCode(customerCode: String): Customer? {
         return findById(customerCode)
     }
-
     override suspend fun saveCustomer(customer: Customer) {
         save(customer)
     }
-
     override suspend fun deleteCustomer(customerCode: String) {
         deleteById(customerCode)
     }
-
-    //this returns a lot of elements that's why we use flow instead of list
     override fun getCustomers(): Flow<List<Customer>> = observeAll()
 }

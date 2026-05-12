@@ -15,7 +15,7 @@ fun EmptyCustomersView() {
         contentAlignment = Alignment.Center
     ) {
         Text(
-            text = "No customers available",
+            text = "No products available",
             style = MaterialTheme.typography.bodyLarge
         )
     }

@@ -23,7 +23,7 @@ interface CustomerApiService {
         @Body customer: CustomerDto
     ): CustomerDto
 
-    @PUT("costomers/{id}")
+    @PUT("customers/{id}")
     suspend fun updateCustomer (  @Body customer: CustomerDto): CustomerDto
 
     @DELETE("customers/{id}")

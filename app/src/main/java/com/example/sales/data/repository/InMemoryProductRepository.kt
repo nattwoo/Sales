@@ -1,6 +1,5 @@
-package com.example.sales.data.local.repository
+package com.example.sales.data.repository
 
-import com.example.sales.data.respository.BaseInMemoryRepository
 import com.example.sales.domain.model.Product
 import com.example.sales.domain.repository.ProductRepository
 import javax.inject.Inject
@@ -35,6 +34,6 @@ class InMemoryProductRepository @Inject constructor()
         deleteById(productCode)
     }
 
-//this returns a lot of elements that's why we use flow instead of list
+    //this returns a lot of elements that's why we use flow instead of list
     override fun getProducts(): Flow<List<Product>> = observeAll()
 }

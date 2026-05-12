@@ -8,4 +8,3 @@ data class ProductDto (
     val stock: Int,
     val taxable: Boolean
 )
-

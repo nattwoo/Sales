@@ -7,7 +7,7 @@ import kotlin.text.isBlank
 class CustomerValidator {
     operator fun invoke(customer: Customer): ValidationResult =
         listOfNotNull(
-            "Code required".takeIf { customer.code.isBlank() },
+            "Code required".takeIf { customer.id.isBlank() },
             "Name required".takeIf { customer.name.isBlank() },
             "Email required".takeIf { customer.email.isBlank() },
             "Purchase History required".takeIf { customer.purchaseHistory.isBlank() }

@@ -17,6 +17,7 @@ import kotlinx.coroutines.launch
 @HiltViewModel
 class ListCustomerViewModel @Inject constructor(
     getCustomersUseCase: ListCustomersUseCase,
+    // here we inject the use case to delete customers
     private val deleteCustomerUseCase: DeleteCustomerUseCase
 ) : ViewModel() {
 
@@ -37,9 +38,10 @@ class ListCustomerViewModel @Inject constructor(
                 ListCustomerUiState()
             )
 
+    // here we can delete a customer from the list
     fun deleteCustomer(customer: Customer) {
         viewModelScope.launch {
-            deleteCustomerUseCase(customer.code)
+            deleteCustomerUseCase(customer.id)
         }
     }
 }

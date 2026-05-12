@@ -1,4 +1,4 @@
-package com.example.sales.data.remote.mapper
+package com.example.sales.data.mapper
 
 import com.example.sales.data.local.entity.ProductEntity
 import com.example.sales.domain.model.Product
